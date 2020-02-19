@@ -12,4 +12,3 @@ class Amenity(BaseModel):
     Amenity class model
     """
     name = ""
-
