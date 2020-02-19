@@ -5,9 +5,12 @@ test city
 
 
 import unittest
+import os
+import pep8
 from datetime import datetime as dt
 import uuid
 from models.city import City
+import models.city as ci
 
 
 class TestCity(unittest.TestCase):
@@ -74,3 +77,20 @@ class TestCity(unittest.TestCase):
         id = representation[1][1:-1]
         self.assertEqual(class_name, "City")
         self.assertEqual(id, str(self.widget.id))
+
+    def test_access(self):
+        """test access"""
+        self.assertTrue(os.access('models/city.py', os.R_OK))
+        self.assertTrue(os.access('models/city.py', os.W_OK))
+        self.assertTrue(os.access('models/city.py', os.X_OK))
+
+    def test_pep8(self):
+        """test style"""
+        style = pep8.StyleGuide(quiet=True)
+        p = style.check_files(['models/city.py'])
+        self.assertEqual(p.total_errors, 0, "fix pep8")
+
+    def test_doc(self):
+        """test doc"""
+        self.assertTrue(len(ci.__doc__) > 0)
+        self.assertTrue(len(City.__doc__) > 0)

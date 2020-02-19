@@ -8,6 +8,9 @@ import unittest
 from datetime import datetime as dt
 import uuid
 from models.review import Review
+import os
+import pep8
+import models.review as rw
 
 
 class TestReview(unittest.TestCase):
@@ -74,3 +77,20 @@ class TestReview(unittest.TestCase):
         id = representation[1][1:-1]
         self.assertEqual(class_name, "Review")
         self.assertEqual(id, str(self.widget.id))
+
+    def test_access(self):
+        """test access"""
+        self.assertTrue(os.access('models/review.py', os.R_OK))
+        self.assertTrue(os.access('models/review.py', os.W_OK))
+        self.assertTrue(os.access('models/review.py', os.X_OK))
+
+    def test_pep8(self):
+        """test style"""
+        style = pep8.StyleGuide(quiet=True)
+        p = style.check_files(['models/review.py'])
+        self.assertEqual(p.total_errors, 0, "fix pep8")
+
+    def test_doc(self):
+        """test doc"""
+        self.assertTrue(len(rw.__doc__) > 0)
+        self.assertTrue(len(Review.__doc__) > 0)

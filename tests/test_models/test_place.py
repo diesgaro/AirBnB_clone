@@ -8,6 +8,9 @@ import unittest
 from datetime import datetime as dt
 import uuid
 from models.place import Place
+import os
+import pep8
+import models.place as pl
 
 
 class TestPlace(unittest.TestCase):
@@ -74,3 +77,20 @@ class TestPlace(unittest.TestCase):
         id = representation[1][1:-1]
         self.assertEqual(class_name, "Place")
         self.assertEqual(id, str(self.widget.id))
+
+    def test_access(self):
+        """test access"""
+        self.assertTrue(os.access('models/place.py', os.R_OK))
+        self.assertTrue(os.access('models/place.py', os.W_OK))
+        self.assertTrue(os.access('models/place.py', os.X_OK))
+
+    def test_pep8(self):
+        """test style"""
+        style = pep8.StyleGuide(quiet=True)
+        p = style.check_files(['models/place.py'])
+        self.assertEqual(p.total_errors, 0, "fix pep8")
+
+    def test_doc(self):
+        """test doc"""
+        self.assertTrue(len(pl.__doc__) > 0)
+        self.assertTrue(len(Place.__doc__) > 0)

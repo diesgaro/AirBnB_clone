@@ -8,7 +8,9 @@ import unittest
 from datetime import datetime as dt
 import uuid
 from models.amenity import Amenity
-
+import os
+import pep8
+import models.amenity as am
 
 class TestAmenity(unittest.TestCase):
     """
@@ -74,3 +76,20 @@ class TestAmenity(unittest.TestCase):
         id = representation[1][1:-1]
         self.assertEqual(class_name, "Amenity")
         self.assertEqual(id, str(self.widget.id))
+
+    def test_access(self):
+        """test access"""
+        self.assertTrue(os.access('models/amenity.py', os.R_OK))
+        self.assertTrue(os.access('models/amenity.py', os.W_OK))
+        self.assertTrue(os.access('models/amenity.py', os.X_OK))
+
+    def test_pep8(self):
+        """test style"""
+        style = pep8.StyleGuide(quiet=True)
+        p = style.check_files(['models/amenity.py'])
+        self.assertEqual(p.total_errors, 0, "fix pep8")
+
+    def test_doc(self):
+        """test doc"""
+        self.assertTrue(len(am.__doc__) > 0)
+        self.assertTrue(len(Amenity.__doc__) > 0)
