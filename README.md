@@ -9,34 +9,60 @@ This behavior is achieved by the console program, this program is capable of rea
 
 This module is just a little piece for the airbnb clone full implementation, will change it's scope in the future.
 
-# The console
+## The console
 
 This tool have the following methods
 
-## all
+### help
+ usage:
+ 
+```
+(hbnb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  all  create  destroy  help  quit  show  update
+```
+
+you can get specific information of one method
+
+```
+(hbnb) help create
+Usage: create <class_name>
+```
+
+
+### all
  usage:
 ```
 $ (hbtn) all
-$ "==JSON REPR FOR ALL OBJECTS IN STORAGE=="
+["[User] (98b9072f-ce8d-4856-b7a7-2004f91815d4) {'created_at': datetime.datetime(2020, 2, 19, 22, 22, 12, 505440), 'updated_at': datetime.datetime(2020, 2, 19, 22, 22, 12, 505466), 'id': '98b9072f-ce8d-4856-b7a7-2004f91815d4'}", "[BaseModel] (76e5ff68-6fd8-4e4b-9111-eb8dbb9eb2bb) {'created_at': datetime.datetime(2020, 2, 19, 22, 23, 55, 671400), 'updated_at': datetime.datetime(2020, 2, 19, 22, 23, 55, 671482), 'id': '76e5ff68-6fd8-4e4b-9111-eb8dbb9eb2bb'}"]
 ```
-## create:
+you can also specify the class objects you want to retrieve
+
+```
+$ (hbtn) all User
+["[User] (98b9072f-ce8d-4856-b7a7-2004f91815d4) {'created_at': datetime.datetime(2020, 2, 19, 22, 22, 12, 505440), 'updated_at': datetime.datetime(2020, 2, 19, 22, 22, 12, 505466), 'id': '98b9072f-ce8d-4856-b7a7-2004f91815d4'}"]
+```
+
+### create:
  usage:
 ```
 $ (hbtn) create User
-'f51cc840-88d1-4213-9b29-18a0d14743bb'
+98b9072f-ce8d-4856-b7a7-2004f91815d4
 ```
 
 Where **User** can be any of the above classes, and it returns the id created for that single object
 
-## show
+### show
  usage:
 ```
-$ (hbtn) show User f51cc840-88d1-4213-9b29-18a0d14743bb
-$ "==JSON EXAMPLE FOR USER=="
+$ (hbtn) show User 98b9072f-ce8d-4856-b7a7-2004f91815d4
+[User] (98b9072f-ce8d-4856-b7a7-2004f91815d4) {'created_at': datetime.datetime(2020, 2, 19, 22, 22, 12, 505440), 'updated_at': datetime.datetime(2020, 2, 19, 22, 22, 12, 505466), 'id': '98b9072f-ce8d-4856-b7a7-2004f91815d4'}
 ```
 giving the class you want to get, and it's "correspondiente" id string
 
-## destroy
+### destroy
   usage:
 ```
 $ (hbtn) destroy User f51cc840-88d1-4213-9b29-18a0d14743bb
@@ -44,6 +70,14 @@ $ (hbtn) destroy User f51cc840-88d1-4213-9b29-18a0d14743bb
 
 destroys an instanece by the given id string
 
+### update
+  usage:
+```
+$ (hbnb) update User 98b9072f-ce8d-4856-b7a7-2004f91815d4 name "Diego Garzon"
+$ (hbnb) show User 98b9072f-ce8d-4856-b7a7-2004f91815d4
+[User] (98b9072f-ce8d-4856-b7a7-2004f91815d4) {'updated_at': datetime.datetime(2020, 2, 19, 22, 29, 17, 431002), 'created_at': datetime.datetime(2020, 2, 19, 22, 22, 12, 505440), 'name': 'Diego Garzon', 'id': '98b9072f-ce8d-4856-b7a7-2004f91815d4'}
+
+```
 
 
 By: Daniel Rodriguez and Diego Garzon
