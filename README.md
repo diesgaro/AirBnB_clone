@@ -125,5 +125,5 @@ destroys an instanece by the given id string
 * text: string
 
 ## Authors
-* Diego Garzon
-* Daniel Rodriguez
+* **Diego Garzon** - [Email] (mailto:digarodev@gmail.com)
+* **Daniel Rodriguez** - [Email] (mailto:danrodcastillo1994@gmail.com)
