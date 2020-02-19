@@ -66,7 +66,8 @@ class TestBaseModel(unittest.TestCase):
         self.widget.save()
         self.assertNotEqual(current_time, self.widget.updated_at)
 
-    def test_verify_magic_str_return(self):
+        def
+        test_verify_magic_str_return(self):
         """test the format returned by __str__"""
         representation = str(self.widget).split(" ")
         class_name = representation[0][1:-1]
