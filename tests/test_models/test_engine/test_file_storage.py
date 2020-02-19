@@ -5,9 +5,9 @@ test file storage
 
 
 import unittest
-import models
 import os
 from models.base_model import BaseModel
+from models.engine.file_storage import FileStorage
 
 
 class TestFileStorage(unittest.TestCase):
@@ -17,7 +17,7 @@ class TestFileStorage(unittest.TestCase):
 
     def setUp(self):
         """initialize test main widget"""
-        self.widget = models.storage
+        self.widget = FileStorage()
 
     def test_create_instance(self):
         """test instance creation"""
