@@ -15,32 +15,32 @@ This tool have the following methods
 
 ## all
  usage:
-
-> (hbtn) all
-> "==JSON REPR FOR ALL OBJECTS IN STORAGE=="
-
+```
+$ (hbtn) all
+$ "==JSON REPR FOR ALL OBJECTS IN STORAGE=="
+```
 ## create:
  usage:
-
-> (hbtn) create User
-> 'f51cc840-88d1-4213-9b29-18a0d14743bb'
->
+```
+$ (hbtn) create User
+'f51cc840-88d1-4213-9b29-18a0d14743bb'
+```
 
 Where **User** can be any of the above classes, and it returns the id created for that single object
 
 ## show
  usage:
-
-> (hbtn) show User f51cc840-88d1-4213-9b29-18a0d14743bb
-> "==JSON EXAMPLE FOR USER=="
-
+```
+$ (hbtn) show User f51cc840-88d1-4213-9b29-18a0d14743bb
+$ "==JSON EXAMPLE FOR USER=="
+```
 giving the class you want to get, and it's "correspondiente" id string
 
 ## destroy
   usage:
-
-> (hbtn) destroy User f51cc840-88d1-4213-9b29-18a0d14743bb
->
+```
+$ (hbtn) destroy User f51cc840-88d1-4213-9b29-18a0d14743bb
+```
 
 destroys an instanece by the given id string
 
