@@ -9,6 +9,7 @@ from datetime import datetime as dt
 import uuid
 from models.state import State
 
+
 class TestState(unittest.TestCase):
     """
     Test state

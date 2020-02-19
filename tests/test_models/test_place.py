@@ -9,6 +9,7 @@ from datetime import datetime as dt
 import uuid
 from models.place import Place
 
+
 class TestPlace(unittest.TestCase):
     """
     Test place

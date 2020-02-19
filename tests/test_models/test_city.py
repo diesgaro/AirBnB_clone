@@ -9,6 +9,7 @@ from datetime import datetime as dt
 import uuid
 from models.city import City
 
+
 class TestCity(unittest.TestCase):
     """
     Test amenity

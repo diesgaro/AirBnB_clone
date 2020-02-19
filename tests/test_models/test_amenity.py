@@ -9,6 +9,7 @@ from datetime import datetime as dt
 import uuid
 from models.amenity import Amenity
 
+
 class TestAmenity(unittest.TestCase):
     """
     Test amenity

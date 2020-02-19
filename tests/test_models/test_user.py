@@ -9,6 +9,7 @@ from datetime import datetime as dt
 import uuid
 from models.user import User
 
+
 class TestUser(unittest.TestCase):
     """
     Test User
