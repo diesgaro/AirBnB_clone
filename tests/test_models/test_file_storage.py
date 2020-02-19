@@ -6,6 +6,7 @@ test file storage
 
 import unittest
 import models
+import os
 from models.base_model import BaseModel
 
 
@@ -22,6 +23,25 @@ class TestFileStorage(unittest.TestCase):
         """test instance creation"""
         obj = BaseModel()
         self.widget.new(obj)
-        al  = self.widget.all()
-        print(al)
-        self.assertEqual(type(al[0]), BaseModel)
+        al = self.widget.all()
+        for key in al:
+            if (type(al[key]) == BaseModel):
+                self.assertEqual(type(al[key]), BaseModel)
+
+    def test_all(self):
+        """test all"""
+        obj = BaseModel()
+        self.widget.new(obj)
+        al = self.widget.all()
+        self.assertEqual(type(al), dict)
+
+    def test_save(self):
+        """test save"""
+        self.widget.save()
+        self.assertTrue(os.path.exists("file.json"))
+
+    def test_reload(self):
+        """test reload method"""
+        self.widget.reload()
+        al = self.widget.all()
+        self.assertEqual(type(al), dict)

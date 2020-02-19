@@ -20,7 +20,7 @@ class TestBaseModel(unittest.TestCase):
 
     def test_type_id(self):
         """test id data type"""
-        self.assertEqual(type(self.widget.id), uuid.UUID)
+        self.assertEqual(type(self.widget.id), str)
 
     def test_type_created(self):
         """test created data type"""
@@ -66,8 +66,7 @@ class TestBaseModel(unittest.TestCase):
         self.widget.save()
         self.assertNotEqual(current_time, self.widget.updated_at)
 
-        def
-        test_verify_magic_str_return(self):
+    def test_verify_magic_str_return(self):
         """test the format returned by __str__"""
         representation = str(self.widget).split(" ")
         class_name = representation[0][1:-1]
