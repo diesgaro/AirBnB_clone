@@ -122,7 +122,6 @@ class HBNBCommand(cmd.Cmd):
             lis = []
             allInstances = models.storage.all()
             for el in allInstances.keys():
-                p = allInstances[el].to_dict()
                 lis.append(str(allInstances[el]))
             print(lis)
         elif (not argument[0] in classes):
