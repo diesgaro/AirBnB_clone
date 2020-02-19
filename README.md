@@ -1,5 +1,4 @@
 # Airbnb clone project
-# AirBnB clone
 
 ## Definition
 
