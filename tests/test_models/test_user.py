@@ -5,9 +5,12 @@ test User
 
 
 import unittest
+import os
+import pep8
 from datetime import datetime as dt
 import uuid
 from models.user import User
+import models.user as us
 
 
 class TestUser(unittest.TestCase):
@@ -74,3 +77,20 @@ class TestUser(unittest.TestCase):
         id = representation[1][1:-1]
         self.assertEqual(class_name, "User")
         self.assertEqual(id, str(self.widget.id))
+
+    def test_access(self):
+        """test access"""
+        self.assertTrue(os.access('models/user.py', os.R_OK))
+        self.assertTrue(os.access('models/user.py', os.W_OK))
+        self.assertTrue(os.access('models/user.py', os.X_OK))
+
+    def test_pep8(self):
+        """test style"""
+        style = pep8.StyleGuide(quiet=True)
+        p = style.check_files(['models/user.py'])
+        self.assertEqual(p.total_errors, 0, "fix pep8")
+
+    def test_doc(self):
+        """test doc"""
+        self.assertTrue(len(us.__doc__) > 0)
+        self.assertTrue(len(User.__doc__) > 0)
