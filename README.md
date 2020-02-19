@@ -84,7 +84,7 @@ destroys an instanece by the given id string
 [User] (98b9072f-ce8d-4856-b7a7-2004f91815d4) {'updated_at': datetime.datetime(2020, 2, 19, 22, 29, 17, 431002), 'created_at': datetime.datetime(2020, 2, 19, 22, 22, 12, 505440), 'name': 'Diego Garzon', 'id': '98b9072f-ce8d-4856-b7a7-2004f91815d4'}
 
 ```
-## Class included
+## Classes included
 ### User
 
 * email: string 
