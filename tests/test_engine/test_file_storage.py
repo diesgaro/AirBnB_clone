@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 """
-test amenity
+test file storage
 """
 
 
 import unittest
 
 
-class TestAmenity(unittest.TestCase):
+class TestFileStorage(unittest.TestCase):
     """
-    Test amenity
+    Test File Storage
     """
 
     def setUp(self):
