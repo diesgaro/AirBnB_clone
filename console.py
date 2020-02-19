@@ -74,7 +74,9 @@ class HBNBCommand(cmd.Cmd):
             res = None
             lis = models.storage.all()
             for key in lis.keys():
-                if (lis[key].id == argument[1]):
+                objL = lis[key].to_dict()
+                if (lis[key].id == argument[1] and
+                        objL["__class__"] == argument[0]):
                     res = lis[key]
             if (res is not None):
                 print(res)
@@ -100,7 +102,9 @@ class HBNBCommand(cmd.Cmd):
             res = None
             lis = models.storage.all()
             for key in lis.keys():
-                if (lis[key].id == argument[1]):
+                objL = lis[key].to_dict()
+                if (lis[key].id == argument[1] and
+                        objL["__class__"] == argument[0]):
                     res = lis[key]
             if (res is not None):
                 object_name = type(res).__name__+"."+res.id
@@ -158,7 +162,9 @@ class HBNBCommand(cmd.Cmd):
             myInstance = None
             allInstances = models.storage.all()
             for key in allInstances.keys():
-                if (allInstances[key].id == argument[1]):
+                objL = allInstances[key].to_dict()
+                if (allInstances[key].id == argument[1] and
+                        objL["__class__"] == argument[0]):
                     myInstance = allInstances[key]
 
             if (myInstance is None):
