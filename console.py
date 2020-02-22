@@ -184,6 +184,55 @@ class HBNBCommand(cmd.Cmd):
         """Help for update"""
         print("Usage: update <class_name> <id> <attr_name> \"<attr_value>\"\n")
 
+    def help_count(self):
+        """Help for update"""
+        print("Usage: <class_name>.count()\n")
+        
+    def do_count(self, arg):
+        """count command"""
+        argument = parse(arg)
+        classes = [cl[0] for cl in globals().items()]
+        lis = []
+        allInstances = models.storage.all()
+        for el in allInstances.keys():
+            p = allInstances[el].to_dict()
+            if (p["__class__"] == argument[0]):
+                lis.append(str(allInstances[el]))
+        print(len(lis))
+
+    def default(self, arg):
+        """default command line manager"""
+        args = arg.split("(")
+        if len(args) > 1:
+            class_ = args[0].split(".")[0]
+            command = args[0].split(".")[1]
+            args = args[1]
+            switcher = {
+                "all": "all",
+                "count": "count",
+                "show": "show",
+                "destroy": "destroy",
+                "update": "update",
+            }
+            coincidence = switcher.get(command, "NO COMMAND")
+            if coincidence == command:
+                if args != ")":
+                    args = args.split(")")[0].split(",")
+                    for i, string in enumerate(args):
+                        pos = 0
+                        while args[i][pos] == " ":
+                            args[i] = args[i][1:]
+                            args = " ".join(args)
+                    args = " ".join(args)
+                    trans_command = "self.do_"
+                    trans_command += command + "('"
+                    trans_command += class_+" "+args+"')"
+                    eval(trans_command)
+                else:
+                    args = class_
+                    trans_command = "self.do_"+command+"('"+class_+"')"
+                    eval(trans_command)
+
 
 def parse(arg):
     """ Split the arguments by spaces """
